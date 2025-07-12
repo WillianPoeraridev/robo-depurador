@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-07-12T14:41:39.151854" rpa="false" schemaversion="5">
+<suite id="s1" name="Robo Depurador" source="C:\Users\HP\Music\AutomacaoRF\robo_depurador.robot">
+<test id="s1-t1" name="Executar e Capturar Resultado do Robô Alvo" line="10">
+<kw name="Run Process" owner="Process">
+<msg time="2025-07-12T14:41:39.220327" level="INFO">Starting process:
+robot robo_alvo.robot</msg>
+<msg time="2025-07-12T14:41:39.238211" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-07-12T14:41:40.086882" level="INFO">Process completed.</msg>
+<msg time="2025-07-12T14:41:40.087212" level="INFO">${resultado} = &lt;result object with rc 252&gt;</msg>
+<var>${resultado}</var>
+<arg>robot ${ROBO_ALVO}</arg>
+<arg>shell=True</arg>
+<arg>stdout=PIPE</arg>
+<arg>stderr=PIPE</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-07-12T14:41:39.216998" elapsed="0.870289"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Coletar e Compactar Evidências">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>FALHA DETECTADA! Coletando e compactando evidências...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.089537" elapsed="0.000257"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-07-12T14:41:40.090192" level="INFO">${timestamp} = 2025-07-12_14-41-40</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d_%H-%M-%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.089940" elapsed="0.000286"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-12T14:41:40.090525" level="INFO">${nome_da_pasta} = debug_2025-07-12_14-41-40</msg>
+<var>${nome_da_pasta}</var>
+<arg>debug_${timestamp}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.090343" elapsed="0.000212"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-12T14:41:40.090937" level="INFO">${pasta_destino} = C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40</msg>
+<var>${pasta_destino}</var>
+<arg>C:\\Users\\HP\\Music\\AutomacaoRF${/}reports${/}${nome_da_pasta}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.090664" elapsed="0.000304"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-07-12T14:41:40.091638" level="INFO" html="true">Created directory '&lt;a href="file://C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40"&gt;C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40&lt;/a&gt;'.</msg>
+<arg>${pasta_destino}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.091076" elapsed="0.000682"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-07-12T14:41:40.094648" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40\erro_terminal.txt"&gt;C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40\erro_terminal.txt&lt;/a&gt;'.</msg>
+<arg>${pasta_destino}${/}erro_terminal.txt</arg>
+<arg>${resultado_da_falha.stderr}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.091986" elapsed="0.002804"/>
+</kw>
+<kw name="Copy File" owner="OperatingSystem">
+<msg time="2025-07-12T14:41:40.101348" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\HP\Music\AutomacaoRF\robo_alvo.robot"&gt;C:\Users\HP\Music\AutomacaoRF\robo_alvo.robot&lt;/a&gt;' to '&lt;a href="file://C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40\robo_alvo.robot"&gt;C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40\robo_alvo.robot&lt;/a&gt;'.</msg>
+<arg>${ROBO_ALVO}</arg>
+<arg>${pasta_destino}${/}${ROBO_ALVO}</arg>
+<doc>Copies the source file into the destination.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.095032" elapsed="0.006519"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Copy File" owner="OperatingSystem">
+<msg time="2025-07-12T14:41:41.102605" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\HP\Music\AutomacaoRF\log.html"&gt;C:\Users\HP\Music\AutomacaoRF\log.html&lt;/a&gt;' to '&lt;a href="file://C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40\log.html"&gt;C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40\log.html&lt;/a&gt;'.</msg>
+<arg>log.html</arg>
+<arg>${pasta_destino}${/}log.html</arg>
+<doc>Copies the source file into the destination.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.102217" elapsed="1.000554"/>
+</kw>
+<arg>Copy File</arg>
+<arg>log.html</arg>
+<arg>${pasta_destino}${/}log.html</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.101890" elapsed="1.001010"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Copy File" owner="OperatingSystem">
+<msg time="2025-07-12T14:41:41.871302" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\HP\Music\AutomacaoRF\report.html"&gt;C:\Users\HP\Music\AutomacaoRF\report.html&lt;/a&gt;' to '&lt;a href="file://C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40\report.html"&gt;C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40\report.html&lt;/a&gt;'.</msg>
+<arg>report.html</arg>
+<arg>${pasta_destino}${/}report.html</arg>
+<doc>Copies the source file into the destination.</doc>
+<status status="PASS" start="2025-07-12T14:41:41.103443" elapsed="0.767974"/>
+</kw>
+<arg>Copy File</arg>
+<arg>report.html</arg>
+<arg>${pasta_destino}${/}report.html</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-12T14:41:41.103171" elapsed="0.768343"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-12T14:41:41.871949" level="INFO">${comando_zip} = Compress-Archive -Path "C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40" -DestinationPath "C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40.zip"</msg>
+<var>${comando_zip}</var>
+<arg>Compress-Archive -Path "${pasta_destino}" -DestinationPath "${pasta_destino}.zip"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-12T14:41:41.871667" elapsed="0.000331"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2025-07-12T14:41:41.883602" level="INFO">Running command 'powershell -Command "Compress-Archive -Path "C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40" -DestinationPath "C:\Users\HP\Music\AutomacaoRF\reports\debug_2025-07-12_14-41-40.zip"" 2&gt;&amp;1'.</msg>
+<arg>powershell -Command "${comando_zip}"</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2025-07-12T14:41:41.872173" elapsed="2.952921"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Evidências compactadas com sucesso em: ${pasta_destino}.zip</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-12T14:41:44.825270" elapsed="0.000382"/>
+</kw>
+<arg>${resultado}</arg>
+<status status="PASS" start="2025-07-12T14:41:40.089123" elapsed="4.736671"/>
+</kw>
+<arg>'${resultado.rc}' != '0'</arg>
+<arg>Coletar e Compactar Evidências</arg>
+<arg>${resultado}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-12T14:41:40.087716" elapsed="4.738161"/>
+</kw>
+<doc>Executa um robô e, se ele falhar, coleta as evidências e as compacta em um arquivo .zip.</doc>
+<status status="PASS" start="2025-07-12T14:41:39.215896" elapsed="5.610296"/>
+</test>
+<status status="PASS" start="2025-07-12T14:41:39.154723" elapsed="5.672352"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robo Depurador" id="s1" pass="1" fail="0" skip="0">Robo Depurador</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,3 @@
+[ ERROR ] Suite 'Robo Alvo' contains no tests or tasks.
+
+Try --help for usage information.
